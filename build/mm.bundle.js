@@ -5191,10 +5191,10 @@ angular.module('mm.core.login', [])
         url: '/site',
         templateUrl: 'core/components/login/templates/site.html',
         controller: 'mmLoginSiteCtrl',
-        ',
+      
 /**-------------------------------add code start----------------------------------------------*/
 onEnter: function($state) {
-$state.go('mm_login.credentials', {siteurl: 'http://apprendreaentreprendre.org'});  // (here is my institution Moodle URL)
+$state.go('mm_login.credentials', {siteurl: 'https://apprendreaentreprendre.org'});  // (here is my institution Moodle URL)
 } 
 /**--------------------------add code end---------------------------------------------------*/
 
