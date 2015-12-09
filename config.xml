@@ -5,13 +5,13 @@
         id        = "com.ibtikari.ibtikarimobile"
         versionCode = "2007"
         version   = "2.6">
-    <name>Ibtikari Mobile</name>
+    <name>Ibtikari </name>
 
     <description>
         Ibtikari Mobile official app
     </description>
 
-    <author href="http://apprendreaentreprendre.org" email="meryem.aboulkassimi@unitar.org">
+    <author href="https://apprendreaentreprendre.org" email="meryem.aboulkassimi@unitar.org">
       Meryem Aboulkassimi
     </author>
 
