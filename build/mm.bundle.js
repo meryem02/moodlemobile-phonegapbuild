@@ -39,14 +39,6 @@ angular.module('mm.core', ['pascalprecht.translate'])
 .constant('mmCoreWifiDownloadThreshold', 104857600)
 .constant('mmCoreDownloadThreshold', 10485760)
 
-.state('mm_login.site', { 
-    url: '/site', 
-    templateUrl: 'core/components/login/templates/site.html',
-    controller: 'mmLoginSiteCtrl',
-    onEnter: function($state) {
-        $state.go('mm_login.credentials', {siteurl: 'http://www.apprendreaentreprendre.org'});
-    }
-})
 .config(["$stateProvider", "$provide", "$ionicConfigProvider", "$httpProvider", "$mmUtilProvider", "$mmLogProvider", "$compileProvider", "$mmInitDelegateProvider", "mmInitDelegateMaxAddonPriority", function($stateProvider, $provide, $ionicConfigProvider, $httpProvider, $mmUtilProvider,
         $mmLogProvider, $compileProvider, $mmInitDelegateProvider, mmInitDelegateMaxAddonPriority) {
     $ionicConfigProvider.platform.android.tabs.position('bottom');
