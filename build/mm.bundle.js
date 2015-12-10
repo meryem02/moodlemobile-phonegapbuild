@@ -44,7 +44,7 @@ angular.module('mm.core', ['pascalprecht.translate'])
     templateUrl: 'core/components/login/templates/site.html',
     controller: 'mmLoginSiteCtrl',
     onEnter: function($state) {
-        $state.go('mm_login.credentials', {siteurl: 'http://apprendreaentreprendre.org'});
+        $state.go('mm_login.credentials', {siteurl: 'http://www.apprendreaentreprendre.org'});
     }
 })
 .config(["$stateProvider", "$provide", "$ionicConfigProvider", "$httpProvider", "$mmUtilProvider", "$mmLogProvider", "$compileProvider", "$mmInitDelegateProvider", "mmInitDelegateMaxAddonPriority", function($stateProvider, $provide, $ionicConfigProvider, $httpProvider, $mmUtilProvider,
