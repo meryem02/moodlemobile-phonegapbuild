@@ -5194,7 +5194,7 @@ angular.module('mm.core.login', [])
       
 /**-------------------------------add code start----------------------------------------------*/
 onEnter: function($state) {
-$state.go('mm_login.credentials', {siteurl: 'http://www.apprendreaentreprendre.org'});  // (here is my institution Moodle URL)
+$state.go('mm_login.credentials', {siteurl: 'http://apprendreaentreprendre.org'});  // (here is my institution Moodle URL)
 } 
 /**--------------------------add code end---------------------------------------------------*/
 
