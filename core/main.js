@@ -61,6 +61,7 @@ angular.module('mm.core', ['pascalprecht.translate'])
                 state: null,
                 params: null
             },
+            cache: false,
             controller: function($scope, $state, $stateParams, $mmSite, $mmSitesManager, $ionicHistory) {
 
                 $ionicHistory.nextViewOptions({disableBack: true});
@@ -103,18 +104,27 @@ angular.module('mm.core', ['pascalprecht.translate'])
     }];
 
     // Add some protocols to safe protocols.
-    var list = $compileProvider.aHrefSanitizationWhitelist().source;
-
-    function addProtocolIfMissing(protocol) {
+    function addProtocolIfMissing(list, protocol) {
         if (list.indexOf(protocol) == -1) {
             list = list.replace('https?', 'https?|' + protocol);
         }
+        return list;
     }
-    addProtocolIfMissing('file');
-    addProtocolIfMissing('tel');
-    addProtocolIfMissing('mailto');
-    addProtocolIfMissing('geo');
-    $compileProvider.aHrefSanitizationWhitelist(list);
+
+    var hreflist = $compileProvider.aHrefSanitizationWhitelist().source,
+        imglist = $compileProvider.imgSrcSanitizationWhitelist().source;
+
+    hreflist = addProtocolIfMissing(hreflist, 'file');
+    hreflist = addProtocolIfMissing(hreflist, 'tel');
+    hreflist = addProtocolIfMissing(hreflist, 'mailto');
+    hreflist = addProtocolIfMissing(hreflist, 'geo');
+    hreflist = addProtocolIfMissing(hreflist, 'filesystem'); // For HTML5 FileSystem.
+    imglist = addProtocolIfMissing(imglist, 'filesystem'); // For HTML5 FileSystem.
+    imglist = addProtocolIfMissing(imglist, 'file');
+    imglist = addProtocolIfMissing(imglist, 'cdvfile');
+
+    $compileProvider.aHrefSanitizationWhitelist(hreflist);
+    $compileProvider.imgSrcSanitizationWhitelist(imglist);
 
     // Register the core init process, this should be the very first thing.
     $mmInitDelegateProvider.registerProcess('mmAppInit', '$mmApp.initProcess', mmInitDelegateMaxAddonPriority + 400, true);
